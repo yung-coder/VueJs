@@ -1,24 +1,22 @@
 <template>
-   <navbar 
-     :pages="pages"
-     :active-page="activePage"
-     :nav-link-click="(index) => activePages = index"
-    ></navbar> 
+  <navbar
+    :pages="pages"
+    :active-page="activePage"
+    :nav-link-click="(index) => (activePages = index)"
+  ></navbar>
 
-   <page-viewer :page="pages[activePage]"></page-viewer>
+  <page-viewer :page="pages[activePages]"></page-viewer>
 </template>
 
-
 <script>
+import Navbar from "./components/Navbar.vue";
 
-import Navbar from './components/Navbar.vue';
-
-import PageViewer from './components/PageViewer.vue';
+import PageViewer from "./components/PageViewer.vue";
 
 export default {
   components: {
-     Navbar,
-     PageViewer
+    Navbar,
+    PageViewer,
   },
   data() {
     return {
@@ -39,7 +37,7 @@ export default {
           pageTitle: "Contact Page",
           content: "This is the contact content",
         },
-      ]
+      ],
     };
   },
 };
