@@ -3,7 +3,7 @@
    <div class="text-end">
      <router-link to="/pages/create" class="btn btn-primary btn-sm">New Page</router-link>
    </div>
-   <table class="table table-striped table-hover">
+   <table class="table  table-hover">
       <thead>
          <tr>
            <th>Title</th>
@@ -12,7 +12,7 @@
          </tr>
       </thead>
       <tbody>
-        <tr v-for="(page , index) in $pages.getAllPages()" :key="index">
+        <tr v-for="(page , index) in $pages.getAllPages()" :key="index" @click="goToPage(index)">
           <td>{{page.pageTitle}}</td>
           <td>{{page.link.text}}</td>
           <td>{{page.published ? "yes" : "no"}}</td>
@@ -24,11 +24,19 @@
 
 <script setup>
   import { ref , reactive  , inject} from 'vue';
+  import { useRouter } from 'vue-router'
 
-  const data = reactive({counter: 0});
   const $pages = inject('$pages');
+  const router = useRouter();
+    
 
-  function click() {
-     data.counter++;
+  function goToPage(index) {
+    router.push({path: `pages/${index}/edit`});
   }
 </script>
+
+<style scope>
+.table .table-hover tr:hover {
+  cursor: pointer;
+}
+</style>
