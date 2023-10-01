@@ -4,6 +4,10 @@
       <a class="navbar-brand" href="#">Navbar</a>
       <ul class="navbar-nav ne-auto nb-2 mb-lg-0">
           <navbar-link  v-for="(page, index) in publishedPages" class="nav-item" :key="index"      :page="page" :isActive="activePage == index"  :index="index" @actived="$emit('actived')"></navbar-link>
+
+          <li>
+            <router-link to="/create" class="nav-link" aria-current="page">Create Page</router-link>
+          </li>
       </ul>
 
       <form class="d-flex">
