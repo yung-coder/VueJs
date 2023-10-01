@@ -6,7 +6,7 @@
           <navbar-link  v-for="(page, index) in publishedPages" class="nav-item" :key="index"      :page="page" :isActive="activePage == index"  :index="index" @actived="$emit('actived')"></navbar-link>
 
           <li>
-            <router-link to="/create" class="nav-link" aria-current="page" active-class="active">Create Page</router-link>
+            <router-link to="/pages/create" class="nav-link" aria-current="page" active-class="active">Create Page</router-link>
           </li>
       </ul>
 
